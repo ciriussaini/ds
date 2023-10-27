@@ -1,13 +1,16 @@
 ## Ques 1 Sliding window Maximum (Hard)
 https://leetcode.com/problems/sliding-window-maximum/
 
-```3 Approaches
+3 Approaches
 
-1. O(NlogK) :
+1 O(NlogK) :
+<details>
+<summary>
 using multiset
-simple approach: maintaing k size window and removing first element from start
+</summary>
+    simple approach: maintaing k size window and removing first element from start
 
-vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+```vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     vector<int> result;
     if (k == 0) return result;
     multiset<int> w;
@@ -17,15 +20,20 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         w.insert(nums[i]);
         if (i >= k-1)
             result.push_back(*w.rbegin());
-    }
+        }
     return result;
-}
+    }
+```
+</details>
 
-2. O(NlogN)
+2 O(NlogN)
+<details>
+<summary>
 using priority queue:
+</summary>
 storing num and index both and removing top element of PQ if index diff is greater than K
 
-vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+```vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     vector<int> result;
     if (k == 0) return result;
     priority_queue<pair<int, int>> w;
@@ -39,8 +47,15 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     return result;
 }
 
-3. O(N)
+```
+</details>
+
+3 O(N)
+
+<details>
+<summary>
 using deque:
+</summary>
 remove from front :: to maintain index diff
 remove from back :: to maintain greater element
 
@@ -49,7 +64,7 @@ add to back every element i
 no changing in order of index happens 
 
 
-vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+```vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     vector<int> result;
     if (k == 0) return result;
     deque<int> w;
@@ -61,6 +76,8 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         w.push_back(i);
         if (i >= k-1)
             result.push_back(nums[w.front()]);
-    }
+        }
     return result;
-}```
+    }
+```
+</details>
