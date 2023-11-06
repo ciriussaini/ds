@@ -2,4 +2,4 @@
 https://medium.com/swlh/understanding-recursion-memoization-and-dynamic-programming-3-sides-of-the-same-coin-8c1f57ee5604 </br>
 **Recursion** : simple solution : base condition always there </br>
 **Memoized** : recursion but we store previous values </br>
-**DP** : via for loops we can say </br>
+**DP** : via for loops we can say or bottom up</br> 
